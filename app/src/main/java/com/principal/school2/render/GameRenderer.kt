@@ -75,12 +75,22 @@ class GameRenderer(private val context: Context) : GLSurfaceViewRenderer {
         private val MODEL_ASSETS = mapOf(
             BuildingType.CLASSROOM to "models/classroom.obj",
             BuildingType.DORM to "models/dorm.obj",
-            BuildingType.CANTEEN to "models/canteen.obj"
+            BuildingType.CANTEEN to "models/canteen.obj",
+            BuildingType.LIBRARY to "models/library.obj",
+            BuildingType.LAB to "models/lab.obj",
+            BuildingType.GYM to "models/gym.obj",
+            BuildingType.PARK to "models/park.obj",
+            BuildingType.PLAYGROUND to "models/playground.obj"
         )
         private val TEXTURE_ASSETS = mapOf(
             BuildingType.CLASSROOM to "textures/classroom.jpg",
             BuildingType.DORM to "textures/dorm.jpg",
-            BuildingType.CANTEEN to "textures/canteen.jpg"
+            BuildingType.CANTEEN to "textures/canteen.jpg",
+            BuildingType.LIBRARY to "textures/library.jpg",
+            BuildingType.LAB to "textures/lab.jpg",
+            BuildingType.GYM to "textures/gym.jpg",
+            BuildingType.PARK to "textures/park.jpg",
+            BuildingType.PLAYGROUND to "textures/playground.jpg"
         )
     }
 
