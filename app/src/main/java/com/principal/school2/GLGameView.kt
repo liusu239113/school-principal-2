@@ -2,6 +2,7 @@ package com.principal.school2
 
 import android.content.Context
 import android.opengl.GLSurfaceView
+import android.util.AttributeSet
 import android.view.MotionEvent
 import com.principal.school2.game.Building
 import com.principal.school2.render.CampusMeshBuilder
@@ -12,9 +13,12 @@ import com.principal.school2.render.GameRenderer
  * - 单指拖动:旋转相机
  * - 单击:射线拾取建筑
  */
-class GLGameView(context: Context) : GLSurfaceView(context) {
+class GLGameView @JvmOverloads constructor(
+    context: Context,
+    attrs: AttributeSet? = null
+) : GLSurfaceView(context, attrs) {
 
-    val renderer = GameRenderer()
+    val renderer = GameRenderer(context)
 
     /** 建筑选中回调(点空地为 null) */
     var onBuildingSelected: ((Building?) -> Unit)? = null

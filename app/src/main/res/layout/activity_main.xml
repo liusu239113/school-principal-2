@@ -28,8 +28,8 @@
             android:id="@+id/moneyText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="💰 3000"
+            android:layout_weight="1.2"
+            android:text="💰 5000"
             android:textColor="@color/textLight"
             android:textSize="14sp"
             android:textStyle="bold" />
@@ -39,9 +39,9 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="🎓 20"
+            android:text="🎓 20/60"
             android:textColor="@color/textLight"
-            android:textSize="14sp" />
+            android:textSize="13sp" />
 
         <TextView
             android:id="@+id/fameText"
@@ -50,7 +50,7 @@
             android:layout_weight="1"
             android:text="⭐ 10"
             android:textColor="@color/textLight"
-            android:textSize="14sp" />
+            android:textSize="13sp" />
 
         <TextView
             android:id="@+id/happyText"
@@ -59,15 +59,15 @@
             android:layout_weight="1"
             android:text="😊 60"
             android:textColor="@color/textLight"
-            android:textSize="14sp" />
+            android:textSize="13sp" />
 
         <TextView
             android:id="@+id/dayText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="D1"
+            android:text="第1学期"
             android:textColor="@color/textSoft"
-            android:textSize="12sp" />
+            android:textSize="11sp" />
     </LinearLayout>
 
     <!-- 事件消息条 -->
@@ -76,15 +76,50 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="top|center_horizontal"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="58dp"
         android:background="@drawable/event_bg"
         android:paddingStart="14dp"
         android:paddingEnd="14dp"
         android:paddingTop="8dp"
         android:paddingBottom="8dp"
-        android:textSize="14sp"
+        android:textSize="13sp"
         android:textColor="@color/textLight"
         android:visibility="gone" />
+
+    <!-- 内容面板(任务/师资/学校) -->
+    <LinearLayout
+        android:id="@+id/contentPanel"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="bottom"
+        android:orientation="vertical"
+        android:background="@drawable/panel_bg"
+        android:padding="10dp"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/contentTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:gravity="center"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/textLight" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:scrollbars="vertical">
+
+            <LinearLayout
+                android:id="@+id/contentList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+        </ScrollView>
+    </LinearLayout>
 
     <!-- 选中建筑信息面板 -->
     <LinearLayout
@@ -101,7 +136,7 @@
             android:id="@+id/infoTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="18sp"
+            android:textSize="17sp"
             android:textColor="@color/textLight"
             android:textStyle="bold" />
 
@@ -156,12 +191,13 @@
         </LinearLayout>
     </LinearLayout>
 
-    <!-- 底部建造栏 -->
+    <!-- 底部建造栏(校园 tab) -->
     <LinearLayout
         android:id="@+id/buildBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
+        android:layout_marginBottom="56dp"
         android:orientation="vertical"
         android:background="@drawable/panel_bg"
         android:padding="10dp">
@@ -172,7 +208,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:gravity="center"
-            android:text="👆 点击校园中的建筑查看 · 拖动旋转视角 · 建造设施扩大校园"
+            android:text="👆 点击建筑查看/升级 · 拖动旋转视角 · 建造设施扩大校园"
             android:textColor="@color/textSoft"
             android:textSize="12sp" />
 
@@ -193,6 +229,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
+        android:layout_marginBottom="56dp"
         android:orientation="vertical"
         android:background="@drawable/panel_bg"
         android:padding="10dp"
@@ -228,6 +265,60 @@
             android:text="关闭"
             android:textColor="@color/textLight"
             android:textSize="15sp"
+            android:stateListAnimator="@null" />
+    </LinearLayout>
+
+    <!-- 底部导航栏 -->
+    <LinearLayout
+        android:id="@+id/bottomNav"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_gravity="bottom"
+        android:orientation="horizontal"
+        android:background="@drawable/nav_bg">
+
+        <Button
+            android:id="@+id/tabCampus"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/btn_tab"
+            android:text="🏫 校园"
+            android:textColor="@color/textLight"
+            android:textSize="13sp"
+            android:stateListAnimator="@null" />
+
+        <Button
+            android:id="@+id/tabTasks"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/btn_tab"
+            android:text="📋 任务"
+            android:textColor="@color/textLight"
+            android:textSize="13sp"
+            android:stateListAnimator="@null" />
+
+        <Button
+            android:id="@+id/tabStaff"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/btn_tab"
+            android:text="🎓 师资"
+            android:textColor="@color/textLight"
+            android:textSize="13sp"
+            android:stateListAnimator="@null" />
+
+        <Button
+            android:id="@+id/tabSchool"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/btn_tab"
+            android:text="🏆 学校"
+            android:textColor="@color/textLight"
+            android:textSize="13sp"
             android:stateListAnimator="@null" />
     </LinearLayout>
 
