@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#2E7D32</color>
+    <color name="colorPrimaryDark">#1B5E20</color>
+    <color name="barBg">#CC1B5E20</color>
+    <color name="panelBg">#F21F2937</color>
+    <color name="textLight">#FFFFFFFF</color>
+    <color name="textSoft">#DDFFFFFF</color>
+    <color name="btnGreen">#FF43A047</color>
+    <color name="btnGreenDark">#FF2E7D32</color>
+    <color name="btnGold">#FFF9A825</color>
+    <color name="btnDisabled">#88666666</color>
+    <color name="cardBg">#E63C4754</color>
+</resources>

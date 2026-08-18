@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">校长我来当2</string>
+    <string name="money_label">💰</string>
+    <string name="student_label">🎓</string>
+    <string name="fame_label">⭐</string>
+    <string name="happy_label">😊</string>
+</resources>

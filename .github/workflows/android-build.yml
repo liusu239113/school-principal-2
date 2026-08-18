@@ -1,0 +1,54 @@
+name: Android Build & Release
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Build release APK
+        run: |
+          chmod +x gradlew
+          ./gradlew assembleRelease --no-daemon --stacktrace
+
+      - name: Upload APK artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: school-principal-2-apk
+          path: app/build/outputs/apk/release/*.apk
+          retention-days: 30
+
+      - name: Create Release
+        if: success()
+        uses: softprops/action-gh-release@v2
+        with:
+          name: build-${{ github.run_number }}
+          tag_name: build-${{ github.run_number }}
+          files: app/build/outputs/apk/release/*.apk
+          body: |
+            ## 校长我来当2 - 自动构建 #${{ github.run_number }}
+
+            - 提交: ${{ github.sha }}
+            - 构建时间: ${{ github.event.head_commit.timestamp }}
+            - APK 可直接安装(debug 签名,测试分发)
+          fail_on_unmatched_files: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:keepScreenOn="true">
+
+    <!-- 3D 校园场景 -->
+    <com.principal.school2.GLGameView
+        android:id="@+id/gameView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!-- 顶部资源栏 -->
+    <LinearLayout
+        android:id="@+id/topBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:orientation="horizontal"
+        android:background="@drawable/bar_bg"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/moneyText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="💰 3000"
+            android:textColor="@color/textLight"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/studentText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="🎓 20"
+            android:textColor="@color/textLight"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/fameText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="⭐ 10"
+            android:textColor="@color/textLight"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/happyText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="😊 60"
+            android:textColor="@color/textLight"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/dayText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="D1"
+            android:textColor="@color/textSoft"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <!-- 事件消息条 -->
+    <TextView
+        android:id="@+id/eventText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|center_horizontal"
+        android:layout_marginTop="60dp"
+        android:background="@drawable/event_bg"
+        android:paddingStart="14dp"
+        android:paddingEnd="14dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:textSize="14sp"
+        android:textColor="@color/textLight"
+        android:visibility="gone" />
+
+    <!-- 选中建筑信息面板 -->
+    <LinearLayout
+        android:id="@+id/infoPanel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:orientation="vertical"
+        android:background="@drawable/panel_bg"
+        android:padding="12dp"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/infoTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textColor="@color/textLight"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/infoDetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textSize="13sp"
+            android:textColor="@color/textSoft" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/upgradeBtn"
+                android:layout_width="0dp"
+                android:layout_height="44dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="6dp"
+                android:background="@drawable/btn_primary"
+                android:text="升级"
+                android:textColor="@color/textLight"
+                android:textSize="15sp"
+                android:stateListAnimator="@null" />
+
+            <Button
+                android:id="@+id/demolishBtn"
+                android:layout_width="0dp"
+                android:layout_height="44dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="6dp"
+                android:background="@drawable/btn_danger"
+                android:text="拆除"
+                android:textColor="@color/textLight"
+                android:textSize="15sp"
+                android:stateListAnimator="@null" />
+
+            <Button
+                android:id="@+id/closeInfoBtn"
+                android:layout_width="0dp"
+                android:layout_height="44dp"
+                android:layout_weight="1"
+                android:background="@drawable/btn_gray"
+                android:text="关闭"
+                android:textColor="@color/textLight"
+                android:textSize="15sp"
+                android:stateListAnimator="@null" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- 底部建造栏 -->
+    <LinearLayout
+        android:id="@+id/buildBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:orientation="vertical"
+        android:background="@drawable/panel_bg"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/hintText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:gravity="center"
+            android:text="👆 点击校园中的建筑查看 · 拖动旋转视角 · 建造设施扩大校园"
+            android:textColor="@color/textSoft"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/buildBtn"
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            android:background="@drawable/btn_primary"
+            android:text="🏗️ 建造设施"
+            android:textColor="@color/textLight"
+            android:textSize="16sp"
+            android:stateListAnimator="@null" />
+    </LinearLayout>
+
+    <!-- 建造面板 -->
+    <LinearLayout
+        android:id="@+id/buildPanel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:orientation="vertical"
+        android:background="@drawable/panel_bg"
+        android:padding="10dp"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:gravity="center"
+            android:text="选择要建造的设施(自动放置到空地)"
+            android:textColor="@color/textLight"
+            android:textSize="14sp" />
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:id="@+id/buildingList"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" />
+        </HorizontalScrollView>
+
+        <Button
+            android:id="@+id/closeBuildBtn"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/btn_gray"
+            android:text="关闭"
+            android:textColor="@color/textLight"
+            android:textSize="15sp"
+            android:stateListAnimator="@null" />
+    </LinearLayout>
+
+</FrameLayout>
